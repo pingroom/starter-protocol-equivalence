@@ -1,0 +1,87 @@
+{
+  "comparisonId": "practice-switch-v1",
+  "title": "Practice switch revision",
+  "acceptanceDefinition": "The practice lamp is on when this event sequence ends.",
+  "events": [
+    {
+      "id": "off",
+      "label": "Press OFF"
+    },
+    {
+      "id": "on",
+      "label": "Press ON"
+    }
+  ],
+  "old": {
+    "label": "Original switch",
+    "initialState": "off",
+    "states": [
+      {
+        "id": "off",
+        "meaning": "Lamp is off."
+      },
+      {
+        "id": "on",
+        "meaning": "Lamp is on."
+      }
+    ],
+    "transitions": [
+      {
+        "from": "off",
+        "event": "off",
+        "to": "off"
+      },
+      {
+        "from": "off",
+        "event": "on",
+        "to": "on"
+      },
+      {
+        "from": "on",
+        "event": "off",
+        "to": "off"
+      },
+      {
+        "from": "on",
+        "event": "on",
+        "to": "on"
+      }
+    ]
+  },
+  "new": {
+    "label": "Revised switch",
+    "initialState": "dark",
+    "states": [
+      {
+        "id": "dark",
+        "meaning": "Lamp is off."
+      },
+      {
+        "id": "lit",
+        "meaning": "Lamp is on."
+      }
+    ],
+    "transitions": [
+      {
+        "from": "dark",
+        "event": "off",
+        "to": "dark"
+      },
+      {
+        "from": "dark",
+        "event": "on",
+        "to": "lit"
+      },
+      {
+        "from": "lit",
+        "event": "off",
+        "to": "dark"
+      },
+      {
+        "from": "lit",
+        "event": "on",
+        "to": "lit"
+      }
+    ]
+  }
+}
